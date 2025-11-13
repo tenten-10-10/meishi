@@ -1,0 +1,31 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>SHOWASHOKAI — Mini</title>
+<style>
+  html,body{margin:0;height:100%;background:linear-gradient(180deg,#edf2f5,#e9eef2)}
+  .stage{position:fixed;inset:0;display:flex;align-items:center;justify-content:center}
+  .mini{width:360px;max-width:92vw;border-radius:16px;background:#fff;box-shadow:0 14px 36px rgba(0,0,0,.18);padding:18px;min-height:120px;}
+</style>
+</head>
+<body>
+<div class="stage">
+  <div class="mini" aria-hidden="true"></div>
+</div>
+<script>
+(function(){
+  function backOrClose(ev){
+    ev.preventDefault();
+    if (history.length > 1) { history.back(); return; }
+    try { window.close(); } catch(e){}
+  }
+  document.addEventListener('click', backOrClose, {passive:false});
+  document.addEventListener('keydown', function(e){
+    if (e.key === 'Escape' || e.key === 'Backspace') backOrClose(e);
+  }, {passive:false});
+})();
+</script>
+</body>
+</html>
